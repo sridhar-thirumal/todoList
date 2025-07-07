@@ -1,3 +1,9 @@
+export type Mode = 'light' | 'dark';
+
+export type FilterableTodoListProps = {
+  mode: Mode;
+};
+
 export type Task = {
   id: number;
   text: string;
@@ -13,14 +19,17 @@ export type InputTasksProps = {
   setInputField: React.Dispatch<React.SetStateAction<string>>;
   editingTaskId: number | null;
   setEditingTaskId: React.Dispatch<React.SetStateAction<number | null>>;
+  mode: Mode;
 };
 
 export type FilterTasksProps = {
-  filter: TaskFilter
+  mode: Mode;
+  filter: TaskFilter;
   setFilter: React.Dispatch<React.SetStateAction<TaskFilter>>;
-}
+};
 
 export type TaskListProps = {
+  mode: Mode;
   tasks: Task[];
   setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
   filter: TaskFilter;
@@ -29,8 +38,14 @@ export type TaskListProps = {
 };
 
 export type TaskItemProps = {
+  mode: Mode;
   task: Task;
   setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
   setEditingTaskId: React.Dispatch<React.SetStateAction<number | null>>;
   setInputField: React.Dispatch<React.SetStateAction<string>>;
+};
+
+export type TasksTodoProps = {
+  taskslen: number;
+  mode: Mode;
 };
