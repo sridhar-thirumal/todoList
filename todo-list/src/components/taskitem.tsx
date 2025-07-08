@@ -49,14 +49,11 @@ function TaskItem({
           </p>
         </div>
         <div className="flex flex-row justify-end max-w-1/2">
-          <button
-            style={{ all: 'unset', cursor: 'pointer' }}
-            onClick={editClickHandle}
-          >
+          <button className="unset-button" onClick={editClickHandle}>
             <Pencil className={mode === 'dark' ? 'text-white' : ''} />
           </button>
           <button
-            style={{ all: 'unset', cursor: 'pointer' }}
+            className="unset-button"
             onClick={() =>
               setTasks((tasks) => tasks.filter((t) => t.id !== task.id))
             }

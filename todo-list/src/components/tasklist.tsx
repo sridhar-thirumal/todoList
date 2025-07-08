@@ -13,36 +13,25 @@ function TaskList({
 }: TaskListProps) {
   /* based on filter should render tasks */
   function renderTaskItem(task: Task) {
-    if (filter === 'all')
-      return (
-        <TaskItem
-          mode={mode}
-          task={task}
-          setTasks={setTasks}
-          setEditingTaskId={setEditingTaskId}
-          setInputField={setInputField}
-        />
-      );
-    else if (filter === 'completed' && task.completed === true)
-      return (
-        <TaskItem
-          mode={mode}
-          task={task}
-          setTasks={setTasks}
-          setEditingTaskId={setEditingTaskId}
-          setInputField={setInputField}
-        />
-      );
-    else if (filter === 'pending' && task.completed === false)
-      return (
-        <TaskItem
-          mode={mode}
-          task={task}
-          setTasks={setTasks}
-          setEditingTaskId={setEditingTaskId}
-          setInputField={setInputField}
-        />
-      );
+    const isCompleted = task.completed;
+
+    const shouldRender =
+      filter === 'all' ||
+      (filter === 'completed' && isCompleted) ||
+      (filter === 'pending' && !isCompleted);
+
+    if (!shouldRender) return null;
+
+    return (
+      <TaskItem
+        key={task.id}
+        mode={mode}
+        task={task}
+        setTasks={setTasks}
+        setEditingTaskId={setEditingTaskId}
+        setInputField={setInputField}
+      />
+    );
   }
 
   return (

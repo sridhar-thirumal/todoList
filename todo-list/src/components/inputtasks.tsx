@@ -55,7 +55,7 @@ function InputTasks({
             value={inputField}
             onChange={(e) => setInputField(e.target.value)}
           />
-          <button style={{ all: 'unset', cursor: 'pointer' }}>
+          <button className="unset-button">
             <Plus className={mode === 'dark' ? 'text-white' : ''} />
           </button>
         </form>
@@ -64,13 +64,13 @@ function InputTasks({
           <input
             type="text"
             className={
-              mode === 'light' ? 'bg-white' : 'bg-[#14366e] text-white'
+              mode === 'light' ? 'bg-white py-3' : 'bg-[#14366e] text-white py3'
             }
             required
             value={inputField}
             onChange={(e) => setInputField(e.target.value)}
           />
-          <button style={{ all: 'unset', cursor: 'pointer' }}>
+          <button className="unset-button">
             <Check className={mode === 'dark' ? 'text-white' : ''} />
           </button>
         </form>

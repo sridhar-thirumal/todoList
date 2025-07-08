@@ -1,1 +1,6 @@
 @import 'tailwindcss';
+
+.unset-button {
+  all: unset;
+  cursor: pointer;
+}
